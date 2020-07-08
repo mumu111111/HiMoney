@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.scss';
 import {
   HashRouter as Router,
   Switch,
@@ -6,12 +7,53 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
+import styled from 'styled-components';
 
+const Wrapper = styled.div`
+  border: 1px solid red;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`
+const Main = styled.div`
+  border: 1px solid red;
+  flex-grow: 1;
+  overflow: auto;
+`
+const Nav = styled.nav`
+  border: 1px solid red;
+  > ul {
+    display: flex;
+    > li {
+      width: 33.3333%;
+      text-align: center;
+      padding: 16px;
+    }
+  }
+`
 function App() {
   return (
     <Router>
-      <div>
-        <nav>
+      <Wrapper>
+        <Main>
+          <Switch>
+            <Route path="/money">
+              <Money />
+            </Route>
+            <Route path="/statistics">
+              <Statistics />
+            </Route>
+            <Route path="/tags">
+              <Tags />
+            </Route>
+            <Redirect exact from="/" to="/money" />
+            <Route path="*">
+              <NoMatch />
+            </Route>
+          </Switch>
+        </Main>
+
+        <Nav>
           <ul>
             <li>
               <Link to="/tags">标签</Link>
@@ -23,26 +65,8 @@ function App() {
               <Link to="/statistics">统计</Link>
             </li>
           </ul>
-        </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/money">
-            <Money />
-          </Route>
-          <Route path="/statistics">
-            <Statistics />
-          </Route>
-          <Route path="/tags">
-            <Tags />
-          </Route>
-          <Redirect exact from="/" to="/money" />
-          <Route path="*">
-            <NoMatch />
-          </Route>
-        </Switch>
-      </div>
+        </Nav>
+      </Wrapper>
     </Router>
   );
 }
