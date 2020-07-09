@@ -3,16 +3,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Icon from './Icon';
 
-// import x from 'icons/chart.svg';
-// import y from 'icons/money.svg';
-// import z from 'icons/tag.svg';
-
-
-// console.log(x)
-// console.log(y)
-
-// console.log(z)
-
 const NavWrapper = styled.nav`
 // line-height: 24px;
 box-shadow: 0 0 3px rgba(0,0,0,0.25);
@@ -22,14 +12,16 @@ box-shadow: 0 0 3px rgba(0,0,0,0.25);
   > li {
     width: 33.3333%;
     text-align: center;
-    padding: 6px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    .icon {
-        width: 24px;
-        height: 24px;
+    > a {
+        padding: 6px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
     }
   }
 }
@@ -39,16 +31,22 @@ const Nav = () => {
         <NavWrapper>
             <ul>
                 <li>
-                    <Icon name="tag" />
-                    <Link to="/tags">标签</Link>
+                    <Link to="/tags">
+                        <Icon name="tag" />
+                        标签
+                    </Link>
                 </li>
                 <li>
-                    <Icon name="money" />
-                    <Link to="/money">记账</Link>
+                    <Link to="/money">
+                        <Icon name="money" />
+                        记账
+                    </Link>
                 </li>
                 <li>
-                    <Icon name="chart" />
-                    <Link to="/statistics">统计</Link>
+                    <Link to="/statistics">
+                        <Icon name="chart" />
+                        统计
+                    </Link>
                 </li>
             </ul>
         </NavWrapper>
