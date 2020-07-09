@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Icon from './Icon';
 
-import x from 'icons/chart.svg';
-import y from 'icons/money.svg';
-import z from 'icons/tag.svg';
-console.log(x)
-console.log(y)
+// import x from 'icons/chart.svg';
+// import y from 'icons/money.svg';
+// import z from 'icons/tag.svg';
 
-console.log(z)
+
+// console.log(x)
+// console.log(y)
+
+// console.log(z)
 
 const NavWrapper = styled.nav`
 // line-height: 24px;
@@ -36,21 +39,15 @@ const Nav = () => {
         <NavWrapper>
             <ul>
                 <li>
-                    <svg className="icon" fill="red">
-                        <use xlinkHref="#tag" />
-                    </svg>
+                    <Icon name="tag" />
                     <Link to="/tags">标签</Link>
                 </li>
                 <li>
-                    <svg className="icon">
-                        <use xlinkHref="#money" />
-                    </svg>
+                    <Icon name="money" />
                     <Link to="/money">记账</Link>
                 </li>
                 <li>
-                    <svg className="icon">
-                        <use xlinkHref="#chart" />
-                    </svg>
+                    <Icon name="chart" />
                     <Link to="/statistics">统计</Link>
                 </li>
             </ul>
